@@ -6,7 +6,7 @@
 /*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:52:24 by frangome          #+#    #+#             */
-/*   Updated: 2023/04/21 12:25:55 by fran             ###   ########.fr       */
+/*   Updated: 2023/04/21 13:39:49 by fran             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char			ft_tolower(char upper);
 char			ft_toupper(char lower);
 void			ft_bzero(void *s, unsigned int n);
 void			*ft_memchr(const void *s, int c, unsigned int n);
-unsigned long	ft_strlcat(char *dest, char *src, unsigned int size);
+unsigned long	ft_strlcat(char *dest, const char *src, unsigned int size);
 unsigned long	ft_strlcpy(char *dest, char *src, unsigned int size);
 char			*ft_strnstr(char *big, char *little, unsigned int l);
 int				ft_atoi(const char *str);
