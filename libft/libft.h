@@ -6,7 +6,7 @@
 /*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:52:24 by frangome          #+#    #+#             */
-/*   Updated: 2023/04/21 12:08:05 by fran             ###   ########.fr       */
+/*   Updated: 2023/04/21 12:25:55 by fran             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int				ft_isalnum(char c);
 int				ft_isalpha(char c);
-int				ft_isascii(char c);
+int				ft_isascii(int c);
 int				ft_isdigit(char digit);
 int				ft_isprint(char c);
 void			*ft_memset(void *str, int c, unsigned int n);
