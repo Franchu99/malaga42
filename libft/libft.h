@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:52:24 by frangome          #+#    #+#             */
-/*   Updated: 2023/04/20 18:05:08 by frangome         ###   ########.fr       */
+/*   Updated: 2023/04/21 12:08:05 by fran             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,6 @@ int				ft_atoi(const char *str);
 void			*ft_calloc(unsigned int nmemb, unsigned int size);
 char			*ft_strdup(const char *s);
 void			*ft_memcpy(void *dest, void *src, unsigned int n);
+int	            ft_memcmp(const void *s1, const void *s2, unsigned int n);
+void	        *ft_memmove(void *dest, void *src, unsigned int n);
 #endif
