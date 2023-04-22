@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 14:41:18 by frangome          #+#    #+#             */
-/*   Updated: 2023/04/19 15:48:59 by frangome         ###   ########.fr       */
+/*   Updated: 2023/04/21 21:03:47 by fran             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(char digit)
+int	ft_isdigit(int digit)
 {
 	if (digit >= '0' && digit <= '9')
 		return (1);

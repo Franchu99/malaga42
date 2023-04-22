@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 14:14:23 by frangome          #+#    #+#             */
-/*   Updated: 2023/04/19 17:41:26 by frangome         ###   ########.fr       */
+/*   Updated: 2023/04/21 21:03:38 by fran             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(char c)
+int	ft_isalpha(int c)
 {
 	if (c >= 65 && c <= 90)
 		return (1);

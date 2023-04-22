@@ -3,23 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:19:38 by frangome          #+#    #+#             */
-/*   Updated: 2023/04/19 15:49:13 by frangome         ###   ########.fr       */
+/*   Updated: 2023/04/22 18:14:08 by fran             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(char *str, char c)
-{
-	int	count;
+#include <string.h>
 
-	count = 0;
-	while (str[count] != c)
+char	*ft_strchr(const char *str, int c)
+{
+	char	*res;
+
+	res = (char *)str;
+	while (*res != c)
 	{
-		if (str[count] == 0)
-			return (0);
-		count++;
+		if (*res == '\0')
+			return (NULL);
+		res++;
 	}
-	return (str + count);
+	return (res);
 }

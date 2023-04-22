@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:45:52 by frangome          #+#    #+#             */
-/*   Updated: 2023/04/18 18:56:15 by frangome         ###   ########.fr       */
+/*   Updated: 2023/04/22 18:14:28 by fran             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+int	ft_strlen(const char *str)
 {
 	int	length;
 

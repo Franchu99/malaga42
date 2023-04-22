@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:33:40 by frangome          #+#    #+#             */
-/*   Updated: 2023/04/19 15:49:39 by frangome         ###   ########.fr       */
+/*   Updated: 2023/04/21 21:12:48 by fran             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strrchr(const char *str, int c)
+char	*ft_strrchr(const char *str, unsigned int c)
 {
 	int		count;
 	int		match;
