@@ -6,10 +6,11 @@
 /*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:52:24 by frangome          #+#    #+#             */
-/*   Updated: 2023/04/23 10:54:53 by fran             ###   ########.fr       */
+/*   Updated: 2023/04/23 12:45:04 by fran             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #ifndef LIBFT_H
 # define LIBFT_H
 
@@ -36,4 +37,5 @@ char			*ft_strdup(const char *s);
 void			*ft_memcpy(void *dest, const void *src, unsigned int n);
 int				ft_memcmp(const void *s1, const void *s2, unsigned int n);
 void			*ft_memmove(void *dest, void *src, unsigned int n);
+char			*ft_substr(char const *s, unsigned int start, size_t len);
 #endif

@@ -6,7 +6,7 @@
 /*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 17:45:02 by frangome          #+#    #+#             */
-/*   Updated: 2023/04/23 10:58:05 by fran             ###   ########.fr       */
+/*   Updated: 2023/04/23 12:04:34 by fran             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strnstr(const char *big, const char *lit, unsigned int l)
 	unsigned int	flag;
 
 	if (!lit && l == 0)
-		return (big);
+		return ((char *)big);
 	i = 0;
 	while (big[i] != 0 && i < l)
 	{
@@ -33,7 +33,7 @@ char	*ft_strnstr(const char *big, const char *lit, unsigned int l)
 			j++;
 		}
 		if (flag && (i + j) <= l)
-			return (big + i);
+			return ((char *)(big + i));
 		i++;
 	}
 	return (0);
