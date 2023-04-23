@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 14:46:55 by frangome          #+#    #+#             */
-/*   Updated: 2023/04/19 15:49:48 by frangome         ###   ########.fr       */
+/*   Updated: 2023/04/23 10:13:45 by fran             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	ft_toupper(char lower)
+int	ft_toupper(int lower)
 {
 	if (lower >= 97 && lower <= 122)
 		return (lower - 32);

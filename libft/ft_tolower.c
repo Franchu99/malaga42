@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 14:53:25 by frangome          #+#    #+#             */
-/*   Updated: 2023/04/19 15:49:43 by frangome         ###   ########.fr       */
+/*   Updated: 2023/04/23 10:13:34 by fran             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	ft_tolower(char upper)
+int	ft_tolower(int upper)
 {
 	if (upper >= 65 && upper <= 90)
 		return (upper + 32);
