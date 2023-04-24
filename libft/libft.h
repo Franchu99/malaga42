@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:52:24 by frangome          #+#    #+#             */
-/*   Updated: 2023/04/23 21:53:22 by fran             ###   ########.fr       */
+/*   Updated: 2023/04/24 19:49:46 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #ifndef LIBFT_H
+
 # define LIBFT_H
+# include <stdlib.h>
 
 int				ft_isalnum(int c);
 int				ft_isalpha(int c);
@@ -39,6 +40,8 @@ int				ft_memcmp(const void *s1, const void *s2, unsigned int n);
 void			*ft_memmove(void *dest, void *src, unsigned int n);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
-char	        *ft_strtrim(char const *s1, char const *set);
-char            **ft_split(char const *s, char c);
+char			*ft_strtrim(char const *s1, char const *set);
+char			**ft_split(char const *s, char c);
+char			*ft_itoa(int n);
+char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 #endif

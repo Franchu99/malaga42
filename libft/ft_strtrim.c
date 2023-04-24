@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 15:25:43 by fran              #+#    #+#             */
-/*   Updated: 2023/04/23 21:47:24 by fran             ###   ########.fr       */
+/*   Updated: 2023/04/24 15:58:43 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	get_start(char const *s1, char const *set)
 	while (c < len)
 	{
 		if (ft_strchr(set, s1[c]) == 0)
-			break;
+			break ;
 		c++;
 	}
 	return (c);
@@ -36,7 +36,7 @@ int	get_end(char const *s1, char const *set)
 	while (len > 0)
 	{
 		if (ft_strchr(set, s1[len - 1]) == 0)
-			break;		
+			break ;
 		len--;
 	}
 	return (len);

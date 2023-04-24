@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 17:45:02 by frangome          #+#    #+#             */
-/*   Updated: 2023/04/23 12:04:34 by fran             ###   ########.fr       */
+/*   Updated: 2023/04/24 15:24:35 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // #include <stdio.h>
-// #include <string.h>
+#include <string.h>
+#include "libft.h"
 
 char	*ft_strnstr(const char *big, const char *lit, unsigned int l)
 {
@@ -19,8 +20,10 @@ char	*ft_strnstr(const char *big, const char *lit, unsigned int l)
 	unsigned int	j;
 	unsigned int	flag;
 
-	if (!lit && l == 0)
+	if (lit[0] == '\0')
 		return ((char *)big);
+	if (strlen(lit) > strlen(big))
+		return (0);
 	i = 0;
 	while (big[i] != 0 && i < l)
 	{
@@ -36,7 +39,7 @@ char	*ft_strnstr(const char *big, const char *lit, unsigned int l)
 			return ((char *)(big + i));
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
 
 // int	main(void)
