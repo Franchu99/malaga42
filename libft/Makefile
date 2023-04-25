@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fran <fran@student.42.fr>                  +#+  +:+       +#+         #
+#    By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/18 18:47:47 by frangome          #+#    #+#              #
-#    Updated: 2023/04/25 11:25:58 by fran             ###   ########.fr        #
+#    Updated: 2023/04/25 19:31:42 by frangome         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,24 +21,32 @@ FILES = ft_isalpha.c ft_isascii.c ft_isalnum.c ft_isdigit.c ft_isprint.c\
 		ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c\
 		ft_putnbr_fd.c
 
+BONUS = ft_lstnew.c
+
 OBJECTS = $(FILES:.c=.o)
+
+BOBJECTS = ${BONUS:.c=.o}
 
 FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	ar rcs $(NAME) $(OBJECTS)
+	@ar rcs $(NAME) $(OBJECTS)
 
 $(OBJECTS): $(FILES)
-	gcc $(FLAGS) -c $(FILES)
+	@gcc $(FLAGS) -c $(FILES)
 
 clean:
-	rm -f $(OBJECTS)
+	@rm -f $(OBJECTS)
 
 fclean:
-	rm -f $(NAME) $(OBJECTS)
+	@rm -f $(NAME) $(OBJECTS)
 
 re: fclean all
+
+bonus:
+	@gcc ${FLAGS} -c ${BONUS}
+	@ar rcs ${NAME} ${BOBJECTS}
 
 .PHONY: re all fclean clean

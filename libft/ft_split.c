@@ -6,7 +6,7 @@
 /*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 21:48:53 by fran              #+#    #+#             */
-/*   Updated: 2023/04/24 17:22:02 by frangome         ###   ########.fr       */
+/*   Updated: 2023/04/25 19:01:57 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,35 +58,22 @@ char	**ft_split(char const *s, char c)
 	char	**res;
 	int		i;
 	int		j;
-	int		start;
-	int		end;
 	int		flag;
 
 	res = malloc((word_counter(s, c) + 1) * sizeof(char *));
+	if (!s || !res)
+		return (0);
 	i = 0;
 	j = 0;
-	start = 0;
-	end = 0;
-	flag = 0;
-	while (s[i] != 0)
+	flag = -1;
+	while (i <= ft_strlen(s))
 	{
-		if (s[i] != c && !flag)
+		if (s[i] != c && flag < 0 && i != ft_strlen(s))
+			flag = i;
+		if ((s[i] == c || i == ft_strlen(s)) && flag >= 0)
 		{
-			start = i;
-			flag = 1;
-		}
-		if (s[i + 1] == 0 && flag)
-		{
-			end = i + 1;
-			res[j] = insert_word(s, start, end);
-			j++;
-		}
-		if (s[i] == c && flag && s[i + 1] != 0)
-		{
-			end = i;
-			flag = 0;
-			res[j] = insert_word(s, start, end);
-			j++;
+			res[j++] = insert_word(s, flag, i);
+			flag = -1;
 		}
 		i++;
 	}

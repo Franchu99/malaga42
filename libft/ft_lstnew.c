@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/23 11:37:22 by fran              #+#    #+#             */
-/*   Updated: 2023/04/25 19:17:59 by frangome         ###   ########.fr       */
+/*   Created: 2023/04/25 19:33:39 by frangome          #+#    #+#             */
+/*   Updated: 2023/04/25 19:34:16 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+t_list	*ft_lstnew(void *content)
 {
-	char	*result;
-
-	if (!s)
-		return (0);
-	if ((unsigned int)ft_strlen(s) < start)
-		len = 0;
-	if ((size_t)ft_strlen(s + start) < len)
-		len = ft_strlen(s + start);
-	result = malloc((len + 1) * sizeof(char));
-	if (!result)
-		return (0);
-	ft_strlcpy(result, (char *)(s + start), len + 1);
-	return (result);
+	
 }
