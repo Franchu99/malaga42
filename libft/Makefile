@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+         #
+#    By: fran <fran@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/18 18:47:47 by frangome          #+#    #+#              #
-#    Updated: 2023/04/25 20:16:53 by frangome         ###   ########.fr        #
+#    Updated: 2023/04/25 21:30:00 by fran             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ FILES = ft_isalpha.c ft_isascii.c ft_isalnum.c ft_isdigit.c ft_isprint.c\
 		ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c\
 		ft_putnbr_fd.c
 
-BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c
+BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c\
+		ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
 OBJECTS = $(FILES:.c=.o)
 
