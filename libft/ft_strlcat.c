@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 18:21:30 by frangome          #+#    #+#             */
-/*   Updated: 2023/04/22 18:13:02 by fran             ###   ########.fr       */
+/*   Updated: 2023/04/25 20:29:11 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 unsigned long	ft_strlcat(char *dest, const char *src, unsigned int size)
 {
@@ -39,11 +38,3 @@ unsigned long	ft_strlcat(char *dest, const char *src, unsigned int size)
 	dest[len_dst] = '\0';
 	return (res);
 }
-
-// int	main(void)
-// {
-// 	char dest[14] = "a";
-// 	ft_strlcat(dest, "lorem ipsum dolor sit amet",15);
-// 	printf("%s\n", dest);
-// 	return 0;
-// }

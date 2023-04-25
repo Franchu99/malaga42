@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 16:59:06 by frangome          #+#    #+#             */
-/*   Updated: 2023/04/22 18:11:35 by fran             ###   ########.fr       */
+/*   Updated: 2023/04/25 20:29:01 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-// #include <stdio.h>
+#include "libft.h"
 
 char	*ft_strdup(const char *s)
 {
@@ -34,10 +33,3 @@ char	*ft_strdup(const char *s)
 	str[c] = 0;
 	return (str);
 }
-
-// int	main(void)
-// {
-// 	char *str = "hola";
-// 	printf("%s", ft_strdup(str));
-// 	return 0;
-// }

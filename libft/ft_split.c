@@ -6,12 +6,11 @@
 /*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 21:48:53 by fran              #+#    #+#             */
-/*   Updated: 2023/04/25 19:01:57 by frangome         ###   ########.fr       */
+/*   Updated: 2023/04/25 20:28:23 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 int	word_counter(char const *s, char c)
 {

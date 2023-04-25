@@ -6,11 +6,11 @@
 /*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 18:36:36 by frangome          #+#    #+#             */
-/*   Updated: 2023/04/24 19:45:01 by frangome         ###   ########.fr       */
+/*   Updated: 2023/04/25 20:32:08 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 int	get_size(int n)
 {

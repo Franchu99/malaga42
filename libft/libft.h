@@ -6,7 +6,7 @@
 /*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:52:24 by frangome          #+#    #+#             */
-/*   Updated: 2023/04/25 19:34:33 by frangome         ###   ########.fr       */
+/*   Updated: 2023/04/25 20:31:42 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct	s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
@@ -28,7 +28,7 @@ int				ft_isascii(int c);
 int				ft_isdigit(int digit);
 int				ft_isprint(int c);
 void			*ft_memset(void *str, int c, unsigned int n);
-char			*ft_strchr(const char *str, char c);
+char			*ft_strchr(const char *str, int c);
 int				ft_strlen(const char *str);
 int				ft_strncmp(const char *s1, const char *s2, unsigned int n);
 char			*ft_strrchr(const char *str, int c);
@@ -57,4 +57,7 @@ void			ft_putstr_fd(char *s, int fd);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
 t_list			*ft_lstnew(void *content);
+void			ft_lstadd_front(t_list **lst, t_list *new);
+int				ft_lstsize(t_list *lst);
+t_list			*ft_lstlast(t_list *lst);
 #endif

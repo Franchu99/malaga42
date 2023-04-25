@@ -6,12 +6,10 @@
 /*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 17:45:02 by frangome          #+#    #+#             */
-/*   Updated: 2023/04/24 15:24:35 by frangome         ###   ########.fr       */
+/*   Updated: 2023/04/25 20:30:57 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <stdio.h>
-#include <string.h>
 #include "libft.h"
 
 char	*ft_strnstr(const char *big, const char *lit, unsigned int l)
@@ -22,7 +20,7 @@ char	*ft_strnstr(const char *big, const char *lit, unsigned int l)
 
 	if (lit[0] == '\0')
 		return ((char *)big);
-	if (strlen(lit) > strlen(big))
+	if (ft_strlen(lit) > ft_strlen(big))
 		return (0);
 	i = 0;
 	while (big[i] != 0 && i < l)
@@ -41,12 +39,3 @@ char	*ft_strnstr(const char *big, const char *lit, unsigned int l)
 	}
 	return (NULL);
 }
-
-// int	main(void)
-// {
-// 	char big[] = "hola buenas";
-// 	char little[] = "";
-// 	printf("%s\n", ft_strnstr(big, little, 0));
-// 	printf("%s\n", strnstr(big, little, 0));
-// 	return 0;
-// }
