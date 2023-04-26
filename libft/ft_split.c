@@ -6,7 +6,7 @@
 /*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 21:48:53 by fran              #+#    #+#             */
-/*   Updated: 2023/04/26 17:41:10 by frangome         ###   ########.fr       */
+/*   Updated: 2023/04/26 19:31:35 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ char	*insert_word(char const *s, int start, int finish)
 	int		i;
 
 	word = malloc(finish - start + 1);
+	if (!word)
+		return (0);
 	i = 0;
 	while (start < finish)
 	{
@@ -52,30 +54,52 @@ char	*insert_word(char const *s, int start, int finish)
 	return (word);
 }
 
-char	**ft_split(char const *s, char c)
+void	free_res(char **res)
 {
-	char				**res;
+	int	i;
+
+	i = 0;
+	while (res[i] != NULL)
+	{
+		free(res[i]);
+		i++;
+	}
+}
+
+char	**get_res(char **res, int flag, char const *s, char c)
+{
 	unsigned int		i;
 	unsigned int		j;
-	int					flag;
 
-	res = malloc((word_counter(s, c) + 1) * sizeof(char *));
-	if (!s || !res)
-		return (0);
 	i = 0;
 	j = 0;
-	flag = -1;
 	while (i <= ft_strlen(s))
 	{
 		if (s[i] != c && flag < 0 && i != (unsigned int)ft_strlen(s))
 			flag = i;
 		if ((s[i] == c || i == ft_strlen(s)) && flag >= 0)
 		{
-			res[j++] = insert_word(s, flag, i);
+			res[j] = insert_word(s, flag, i);
+			if (!res[j])
+				return (free_res(res), free(res), NULL);
 			flag = -1;
+			j++;
 		}
 		i++;
 	}
 	res[j] = 0;
+	return (res);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char				**res;
+	int					flag;
+
+	res = malloc((word_counter(s, c) + 1) * sizeof(char *));
+	if (!s || !res)
+		return (0);
+	flag = -1;
+	res = get_res(res, flag, s, c);
 	return (res);
 }
