@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 18:21:30 by frangome          #+#    #+#             */
-/*   Updated: 2023/04/25 21:15:52 by fran             ###   ########.fr       */
+/*   Updated: 2023/04/26 18:10:22 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, unsigned int size)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	char			*s;
-	unsigned int	len_dst;
-	unsigned int	res;
-	unsigned int	len_src;
-	unsigned int	i;
+	char	*s;
+	size_t	len_dst;
+	size_t	res;
+	size_t	len_src;
+	size_t	i;
 
 	s = (char *)src;
 	len_dst = ft_strlen(dest);

@@ -6,13 +6,13 @@
 /*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 16:38:29 by frangome          #+#    #+#             */
-/*   Updated: 2023/04/25 20:27:51 by frangome         ###   ########.fr       */
+/*   Updated: 2023/04/26 18:04:51 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(unsigned int nmemb, unsigned int size)
+void	*ft_calloc(unsigned int nmemb, size_t size)
 {
 	void	*array;
 

@@ -6,17 +6,17 @@
 /*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 17:45:02 by frangome          #+#    #+#             */
-/*   Updated: 2023/04/25 20:30:57 by frangome         ###   ########.fr       */
+/*   Updated: 2023/04/26 18:12:07 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *lit, unsigned int l)
+char	*ft_strnstr(const char *big, const char *lit, size_t l)
 {
-	unsigned int	i;
-	unsigned int	j;
-	unsigned int	flag;
+	size_t	i;
+	size_t	j;
+	size_t	flag;
 
 	if (lit[0] == '\0')
 		return ((char *)big);

@@ -6,14 +6,16 @@
 /*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 15:51:49 by frangome          #+#    #+#             */
-/*   Updated: 2023/04/20 17:54:52 by frangome         ###   ########.fr       */
+/*   Updated: 2023/04/26 18:06:12 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memchr(const void *s, int c, unsigned int n)
+#include "libft.h"
+
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned int	count;
-	char			*str2;
+	size_t		count;
+	char		*str2;
 
 	str2 = (char *)s;
 	count = 0;

@@ -6,7 +6,7 @@
 /*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 21:48:53 by fran              #+#    #+#             */
-/*   Updated: 2023/04/25 20:28:23 by frangome         ###   ########.fr       */
+/*   Updated: 2023/04/26 17:41:10 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,10 @@ char	*insert_word(char const *s, int start, int finish)
 
 char	**ft_split(char const *s, char c)
 {
-	char	**res;
-	int		i;
-	int		j;
-	int		flag;
+	char				**res;
+	unsigned int		i;
+	unsigned int		j;
+	int					flag;
 
 	res = malloc((word_counter(s, c) + 1) * sizeof(char *));
 	if (!s || !res)
@@ -67,7 +67,7 @@ char	**ft_split(char const *s, char c)
 	flag = -1;
 	while (i <= ft_strlen(s))
 	{
-		if (s[i] != c && flag < 0 && i != ft_strlen(s))
+		if (s[i] != c && flag < 0 && i != (unsigned int)ft_strlen(s))
 			flag = i;
 		if ((s[i] == c || i == ft_strlen(s)) && flag >= 0)
 		{

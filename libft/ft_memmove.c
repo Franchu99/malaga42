@@ -3,18 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 18:09:37 by frangome          #+#    #+#             */
-/*   Updated: 2023/04/23 10:05:19 by fran             ###   ########.fr       */
+/*   Updated: 2023/04/26 18:07:34 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memmove(void *dest, void *src, unsigned int n)
+#include "libft.h"
+
+void	*ft_memmove(void *dest, void *src, size_t n)
 {
-	char				*s;
-	char				*d;
-	unsigned int		c;
+	char		*s;
+	char		*d;
+	size_t		c;
 
 	s = (char *)src;
 	d = (char *)dest;

@@ -6,14 +6,16 @@
 /*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 17:07:39 by frangome          #+#    #+#             */
-/*   Updated: 2023/04/19 15:49:08 by frangome         ###   ########.fr       */
+/*   Updated: 2023/04/26 18:08:07 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memset(void *str, int c, unsigned int n)
+#include "libft.h"
+
+void	*ft_memset(void *str, int c, size_t n)
 {
-	unsigned int	count;
-	char			*str2;
+	size_t	count;
+	char	*str2;
 
 	str2 = str;
 	count = 0;
