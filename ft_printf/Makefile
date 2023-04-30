@@ -9,6 +9,9 @@ FLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
+	@make -C libft
+	@cp libft/libft.a .
+	@mv libft.a $(NAME)
 	@ar rcs $(NAME) $(OBJECTS)
 
 $(OBJECTS): $(FILES)
@@ -16,10 +19,16 @@ $(OBJECTS): $(FILES)
 
 clean:
 	@rm -f $(OBJECTS)
+	@make clean -C libft
 
 fclean:
+	@rm -f libft/libft.a
 	@rm -f $(NAME) $(OBJECTS)
 
 re: fclean all
+
+test:
+	@gcc -c *.c
+	
 
 .PHONY: re all fclean clean

@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_num.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 15:06:39 by fran              #+#    #+#             */
-/*   Updated: 2023/04/30 15:20:49 by fran             ###   ########.fr       */
+/*   Updated: 2023/04/30 22:45:45 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft/libft.h"
 
 int	num_len(int num)
 {
@@ -32,7 +33,7 @@ int ft_print_num(int num)
 	
 	str = ft_itoa(num);
 	len = num_len(num);
-	while (str)
+	while (*str != '\0')
 	{
 		ft_print_char(*str);
 		str++;

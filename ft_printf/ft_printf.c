@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 10:50:09 by fran              #+#    #+#             */
-/*   Updated: 2023/04/30 15:05:16 by fran             ###   ########.fr       */
+/*   Updated: 2023/04/30 22:46:39 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	get_format(va_list args, const char format)
 	int	len;
 
 	len = 0;
+	if (format == '%')
+		len += write(1, "%%", 1);
 	if (format == 'c')
 		len += ft_print_char(va_arg(args, int));
 	if (format == 's')
@@ -54,14 +56,3 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (str_len);
 }
-
-// int	main(void)
-// {
-// 	char	*ptr;
-// 	char	c;
-
-// 	c = 'c';
-// 	ptr = &c;
-// 	//ft_printf(" %p \n", -1);
-// 	printf(" %p \n", 0);
-// }
