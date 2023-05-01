@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 12:09:03 by fran              #+#    #+#             */
-/*   Updated: 2023/04/30 14:12:09 by fran             ###   ########.fr       */
+/*   Updated: 2023/05/01 18:22:09 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_print_char(int c)
 {
 	write(1, &c, 1);
-	return(1);
+	return (1);
 }
 
 int	ft_print_str(char *str)
@@ -23,6 +23,11 @@ int	ft_print_str(char *str)
 	int	i;
 
 	i = 0;
+	if (!str)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
 	while (str[i] != '\0')
 	{
 		ft_print_char(str[i]);

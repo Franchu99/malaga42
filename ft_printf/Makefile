@@ -1,6 +1,7 @@
 NAME = libftprintf.a
 
-FILES = ft_printf.c ft_print_char.c ft_print_pointer.c ft_print_num.c
+FILES = ft_printf.c ft_print_char.c ft_print_pointer.c ft_print_num.c\
+		ft_long_itoa.c ft_print_hexa.c
 
 OBJECTS = $(FILES:.c=.o)
 
@@ -26,9 +27,6 @@ fclean:
 	@rm -f $(NAME) $(OBJECTS)
 
 re: fclean all
-
-test:
-	@gcc -c *.c
 	
 
 .PHONY: re all fclean clean

@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_long_itoa.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/24 18:36:36 by frangome          #+#    #+#             */
-/*   Updated: 2023/05/01 18:10:14 by frangome         ###   ########.fr       */
+/*   Created: 2023/05/01 18:12:36 by frangome          #+#    #+#             */
+/*   Updated: 2023/05/01 18:21:47 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
+#include "libft/libft.h"
 
-int	get_size(int n)
+long	get_size_long(long n)
 {
 	int	c;
 
@@ -27,22 +28,19 @@ int	get_size(int n)
 	return (c);
 }
 
-char	*fill_str(char *str, int n, int neg, int min)
+char	*put_str(char *str, long n, long neg)
 {
-	int	size;
-	int	c;
+	long	size;
+	long	c;
 
-	size = get_size(n);
+	size = get_size_long(n);
 	if (neg)
-		size = get_size(n) + 1;
+		size = get_size_long(n) + 1;
 	str[size] = 0;
 	c = 0;
 	while (c < size)
 	{
-		if (min && c == 0)
-			str[size - c - 1] = (n % 10) + 49;
-		else
-			str[size - c - 1] = (n % 10) + 48;
+		str[size - c - 1] = (n % 10) + 48;
 		n /= 10;
 		c++;
 	}
@@ -51,30 +49,23 @@ char	*fill_str(char *str, int n, int neg, int min)
 	return (str);
 }
 
-char	*ft_itoa(int n)
+char	*ft_long_itoa(long n)
 {
 	char	*str;
-	int		size;
-	int		neg;
-	int		min;
+	long	size;
+	long	neg;
 
 	neg = 0;
-	min = 0;
-	if (n == -2147483648)
-	{
-		n++;
-		min = 1;
-	}
-	size = get_size(n);
+	size = get_size_long(n);
 	if (n < 0)
 	{
 		n *= -1;
-		size = get_size(n) + 1;
+		size = get_size_long(n) + 1;
 		neg = 1;
 	}
 	str = (char *)malloc((size + 1) * sizeof(char));
 	if (!str)
 		return (0);
-	str = fill_str(str, n, neg, min);
+	str = put_str(str, n, neg);
 	return (str);
 }

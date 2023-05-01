@@ -6,54 +6,53 @@
 /*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 12:11:32 by fran              #+#    #+#             */
-/*   Updated: 2023/04/30 22:07:32 by frangome         ###   ########.fr       */
+/*   Updated: 2023/05/01 18:25:52 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int get_len(uintptr_t ptr)
+int	get_len(uintptr_t ptr)
 {
-    int len;
-    
-    len = 0;
-    while (ptr > 0)
-    {
-        len++;
-        ptr /= 10;
-    }
-    return (len);
+	int	len;
+
+	len = 0;
+	while (ptr > 0)
+	{
+		len++;
+		ptr /= 16;
+	}
+	return (len);
 }
 
-void write_pointer(uintptr_t ptr)
+void	write_pointer(uintptr_t ptr)
 {
-    if (ptr >= 16)
-    {
-        write_pointer(ptr / 16);
-        write_pointer(ptr % 16);
-    }
-    else
-    {
-    if (ptr <= 9)
-        ft_print_char(ptr + '0');
-    else
-        ft_print_char(ptr - 10 + 'a'); 
-    }
+	if (ptr >= 16)
+	{
+		write_pointer(ptr / 16);
+		write_pointer(ptr % 16);
+	}
+	else
+	{
+		if (ptr <= 9)
+			ft_print_char(ptr + '0');
+		else
+			ft_print_char(ptr - 10 + 'a');
+	}
 }
 
-int ft_print_pointer(uintptr_t ptr)
+int	ft_print_pointer(uintptr_t ptr)
 {
-    int len;
+	int	len;
 
-    len = 2;
-    write(1, "0x", 2);
-    if (ptr == 0)
-        len += write(1, "0", 1);
-    else
-    {
-        write_pointer(ptr);
-        len += get_len(ptr);
-        
-    }
-    return (len);
+	len = 2;
+	write(1, "0x", 2);
+	if (ptr == 0)
+		len += write(1, "0", 1);
+	else
+	{
+		write_pointer(ptr);
+		len += get_len(ptr);
+	}
+	return (len);
 }

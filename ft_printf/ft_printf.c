@@ -6,7 +6,7 @@
 /*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 10:50:09 by fran              #+#    #+#             */
-/*   Updated: 2023/04/30 22:46:39 by frangome         ###   ########.fr       */
+/*   Updated: 2023/05/01 18:53:33 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,12 @@ int	get_format(va_list args, const char format)
 		len += ft_print_pointer(va_arg(args, uintptr_t));
 	if (format == 'd' || format == 'i')
 		len += ft_print_num(va_arg(args, int));
-	
+	if (format == 'u')
+		len += ft_print_unsigned(va_arg(args, unsigned int));
+	if (format == 'x')
+		len += ft_print_hexa(va_arg(args, unsigned int));
+	if (format == 'X')
+		len += ft_print_upper_hexa(va_arg(args, unsigned int));
 	return (len);
 }
 
