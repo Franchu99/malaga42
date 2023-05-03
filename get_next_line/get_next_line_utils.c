@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 14:09:51 by frangome          #+#    #+#             */
-/*   Updated: 2023/05/03 17:02:15 by frangome         ###   ########.fr       */
+/*   Created: 2023/05/03 16:50:01 by frangome          #+#    #+#             */
+/*   Updated: 2023/05/03 16:58:10 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "get_next_line.h"
 
-char	*get_next_line(int fd)
+int	get_size(char *buffer)
 {
-	static char		buffer[100];
-	char			*line;
-	int				lsize;
-	int				i;
-	int				bsize;
-	
-	bsize = 100;
-	while(read(fd, buffer, bsize))
+	int len;
+
+	len = 0;
+	while (buffer[len] != '\n')
+		len++;
+	return (len);
+}
+
+void remove_line(char *buffer, int lsize)
+{
+	int	i;
+
+	i = 0;
+	while (buffer[i] != 0)
 	{
-		lsize = get_size(buffer);
-		line = (char *)malloc(sizeof(char) * (lsize + 1));
-		i = 0;
-		while (i < lsize)
-		{
-			line[i] = buffer[i];
-			i++;
-		}
-		line[i] = 0;
-		remove_line(buffer, lsize);
-		return (line);
+		if (i < lsize)
+			buffer[i] = buffer[i + lsize]; 
+		else
+			buffer[i] = 0;
+		i++;
 	}
-	return (0);
 }
