@@ -3,14 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:51:26 by frangome          #+#    #+#             */
-/*   Updated: 2023/05/03 16:59:31 by frangome         ###   ########.fr       */
+/*   Updated: 2023/05/03 22:59:48 by fran             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
+
+#ifndef BUFFER_SIZE
+# define BUFFER_SIZE 100
+# endif
 
 # define LIBFT_H
 # include <stdlib.h>
