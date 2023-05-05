@@ -5,34 +5,63 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 16:50:01 by frangome          #+#    #+#             */
-/*   Updated: 2023/05/03 23:22:11 by fran             ###   ########.fr       */
+/*   Created: 2023/05/05 12:27:32 by fran              #+#    #+#             */
+/*   Updated: 2023/05/05 14:05:00 by fran             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	get_size(char *buffer)
+int	is_line(char *buffer)
 {
-	int len;
-
-	len = 0;
-	while (buffer[len] != '\n')
-		len++;
-	return (len);
+	int	i;
+	
+	i = 0;
+	while (buffer[i] != 0)
+	{
+		if (buffer[i] == '\n')
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
-void remove_line(char *buffer, int lsize)
+int	put_line(char *buffer)
 {
 	int	i;
 
 	i = 0;
-	while (i <= BUFFER_SIZE)
+	while (buffer[i] != '\n' && buffer[i] != '\0')
+		i++;
+	return (i);
+}
+
+void	remove_line(char *buffer)
+{
+	int	size;
+	int	i;
+
+	size = put_line(buffer);
+	i = 0;
+	while (buffer[i] != '\0')
 	{
-		if (i < (BUFFER_SIZE - lsize - 1))
-			buffer[i] = buffer[i + lsize + 2];
+		if (i <= (BUFFER_SIZE - size - 1))
+			buffer[i] = buffer[i + size + 1];
 		else
 			buffer[i] = 0;
 		i++;
 	}
+}
+
+void	fill_line(char *line, char *buffer)
+{
+	int	i;
+
+	i = 0;
+	while(buffer[i] != '\n' && buffer[i] != '\0')
+	{
+		line[i] = buffer[i];
+		i++;
+	}
+	line[i] = 0;
 }
