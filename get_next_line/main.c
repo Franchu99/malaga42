@@ -6,7 +6,7 @@
 /*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 12:15:54 by fran              #+#    #+#             */
-/*   Updated: 2023/05/05 13:30:35 by fran             ###   ########.fr       */
+/*   Updated: 2023/05/06 12:03:59 by fran             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 int main()
 {
+    char buffer[BUFFER_SIZE];
     int fd;
 
     fd = open("text.txt", O_RDONLY);
@@ -24,5 +25,5 @@ int main()
     printf("%s\n", get_next_line(fd));
     printf("%s\n", get_next_line(fd));
     printf("%s\n", get_next_line(fd));
-    printf("%s\n", get_next_line(fd));
+    // printf("%s\n", get_next_line(fd));
 }

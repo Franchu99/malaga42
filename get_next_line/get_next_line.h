@@ -6,7 +6,7 @@
 /*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 12:18:27 by fran              #+#    #+#             */
-/*   Updated: 2023/05/05 14:08:45 by fran             ###   ########.fr       */
+/*   Updated: 2023/05/06 12:06:21 by fran             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,12 @@
 #include <unistd.h>
 
 
-char    *get_next_line(int fd);
-int     put_line(char *buffer);
-void	remove_line(char *buffer);
-char	*ft_strjoin(char const *s1, char const *s2);
-void	fill_line(char *line, char *buffer);
-int	    is_line(char *buffer);
+char            *get_next_line(int fd);
+int             put_line(char *buffer);
+void	        remove_line(char *buffer);
+char	        *ft_strjoin(char const *s1, char const *s2);
+void	        fill_line(char *line, char *buffer);
+int	            is_line(char *buffer);
+unsigned int	ft_strlen(const char *str);
 
 #endif

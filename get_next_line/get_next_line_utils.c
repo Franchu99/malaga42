@@ -6,7 +6,7 @@
 /*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 12:27:32 by fran              #+#    #+#             */
-/*   Updated: 2023/05/05 14:05:00 by fran             ###   ########.fr       */
+/*   Updated: 2023/05/05 16:13:33 by fran             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,29 @@ void	remove_line(char *buffer)
 
 	size = put_line(buffer);
 	i = 0;
-	while (buffer[i] != '\0')
+	if (is_line(buffer))
 	{
-		if (i <= (BUFFER_SIZE - size - 1))
-			buffer[i] = buffer[i + size + 1];
-		else
-			buffer[i] = 0;
-		i++;
+		while (buffer[i] != '\0')
+		{
+			if (i <= (BUFFER_SIZE - size - 1))
+				buffer[i] = buffer[i + size + 1];
+			else
+				buffer[i] = 0;
+			i++;
+		}
 	}
-}
+	else
+	{
+		while (buffer[i] != '\0')
+		{
+			if (i <= (BUFFER_SIZE - size))
+				buffer[i] = buffer[i + size];
+			else
+				buffer[i] = 0;
+			i++;
+		}
+	}
+	}
 
 void	fill_line(char *line, char *buffer)
 {
