@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 12:15:20 by fran              #+#    #+#             */
-/*   Updated: 2023/05/06 12:12:55 by fran             ###   ########.fr       */
+/*   Updated: 2023/05/06 18:49:20 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,18 @@ char	*get_next_line(int fd)
 {
     char		*line;
     static char	buffer[BUFFER_SIZE];
+	int			i;
 	
-	if (buffer)
+	if (buffer[0] != 0)
 	{
-		line = (char *)malloc(sizeof(char) * put_line(buffer));
+		line = (char *)malloc(sizeof(char) * nline(buffer));
 		fill_line(line, buffer);
 	}
 	else
 	{
-		if (read(fd, buffer, BUFFER_SIZE) == 0)
+		if (read(fd, buffer, BUFFER_SIZE) <= 0)
 			return (0);
-		line = (char *)malloc(sizeof(char) * put_line(buffer));
+		line = (char *)malloc(sizeof(char) * nline(buffer));
 		fill_line(line, buffer);
 	}
 	if (is_line(buffer))
@@ -37,12 +38,15 @@ char	*get_next_line(int fd)
 	}
 	else
 	{
-		while(read(fd, buffer, BUFFER_SIZE) && !is_line(buffer))
+		i = read(fd, buffer, BUFFER_SIZE);
+		while(i && !is_line(buffer))
 		{
 			line = ft_strjoin(line, buffer);
 			remove_line(buffer);
+			i = read(fd, buffer, BUFFER_SIZE);
 		}
-		line = ft_strjoin(line, buffer);
+		if (i)
+			line = ft_strjoin(line, buffer);
 		remove_line(buffer);
 		return (line);
 	}

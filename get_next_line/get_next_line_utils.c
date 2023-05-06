@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 12:27:32 by fran              #+#    #+#             */
-/*   Updated: 2023/05/05 16:13:33 by fran             ###   ########.fr       */
+/*   Updated: 2023/05/06 19:01:45 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,14 @@ int	is_line(char *buffer)
 	return (0);
 }
 
-int	put_line(char *buffer)
+int	nline(char *buffer)
 {
 	int	i;
 
 	i = 0;
-	while (buffer[i] != '\n' && buffer[i] != '\0')
+	while (buffer[i] != '\n' && buffer[i] != '\0' && i < BUFFER_SIZE)
+		i++;
+	if (buffer[i] == '\n')
 		i++;
 	return (i);
 }
@@ -41,38 +43,31 @@ void	remove_line(char *buffer)
 	int	size;
 	int	i;
 
-	size = put_line(buffer);
+	size = nline(buffer);
 	i = 0;
-	if (is_line(buffer))
+	
+	while (buffer[i] != '\0' && i < BUFFER_SIZE)
 	{
-		while (buffer[i] != '\0')
-		{
-			if (i <= (BUFFER_SIZE - size - 1))
-				buffer[i] = buffer[i + size + 1];
-			else
-				buffer[i] = 0;
-			i++;
-		}
+		if (i < (BUFFER_SIZE - size))
+			buffer[i] = buffer[i + size];
+		else
+			buffer[i] = 0;
+		i++;
 	}
-	else
-	{
-		while (buffer[i] != '\0')
-		{
-			if (i <= (BUFFER_SIZE - size))
-				buffer[i] = buffer[i + size];
-			else
-				buffer[i] = 0;
-			i++;
-		}
-	}
-	}
+}
+	
 
 void	fill_line(char *line, char *buffer)
 {
 	int	i;
 
 	i = 0;
-	while(buffer[i] != '\n' && buffer[i] != '\0')
+	while(buffer[i] != '\n' && buffer[i] != '\0' && i < BUFFER_SIZE)
+	{
+		line[i] = buffer[i];
+		i++;
+	}
+	if (buffer[i] == '\n')
 	{
 		line[i] = buffer[i];
 		i++;
