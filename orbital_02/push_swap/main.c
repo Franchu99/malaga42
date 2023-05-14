@@ -6,7 +6,7 @@
 /*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 14:47:46 by fran              #+#    #+#             */
-/*   Updated: 2023/05/14 18:11:51 by fran             ###   ########.fr       */
+/*   Updated: 2023/05/14 22:02:45 by fran             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ t_stack	*new_stack(int	content)
 	return (newlist);
 }
 
-void	add_stack_b(t_stack **lst, t_stack *new)
+void	add_stack_back(t_stack **lst, t_stack *new)
 {
 	t_stack	*last;
 
@@ -76,20 +76,20 @@ void	print_stack(t_stack *stack)
 
 int	main(int argc, char **argv)
 {
-	t_stack	**stack_a;
-	t_stack	**stack_b;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 	int	i;
 
 	if (argc <= 1)
 		return (0);
-	*stack_a = NULL;
-	*stack_b = NULL;
+	stack_a = NULL;
+	stack_b = NULL;
 	i = 1;
 	while ( i < argc)
 	{
-		add_stack_b(stack_a, new_stack(ft_atoi(argv[i])));
+		add_stack_back(&stack_a, new_stack(ft_atoi(argv[i])));
 		i++;
 	}
-	print_stack(*stack_a);
+	print_stack(stack_a);
 	return (0);
 }
