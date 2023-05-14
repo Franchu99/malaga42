@@ -3,41 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_ops.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:16:44 by frangome          #+#    #+#             */
-/*   Updated: 2023/05/13 18:05:11 by frangome         ###   ########.fr       */
+/*   Updated: 2023/05/14 12:13:16 by fran             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
-
-int	lstsize(t_stack *lst)
-{
-	int		c;
-
-	c = 0;
-	while (lst)
-	{
-		lst = lst->next;
-		c++;
-	}
-	return (c);
-}
-
-t_stack	*lstlast(t_stack *lst)
-{
-	int		size;
-
-	size = lstsize(lst);
-	while (size > 1)
-	{
-		lst = lst->next;
-		size--;
-	}
-	return (lst);
-}
 
 void	swap(t_stack **stack)
 {
@@ -71,7 +45,15 @@ void	rotate(t_stack	**stack)
 	*stack = tmp;
 	
 }
+
 void	inverse_rotate(t_stack **stack)
 {
-	
+	t_stack	*n2lst;
+	t_stack	*lst;
+
+	n2lst = get_n2lst(*stack);
+	lst = n2lst->next;
+	lst->next = *stack;
+	n2lst->next = NULL;
+	*stack = lst;
 }
