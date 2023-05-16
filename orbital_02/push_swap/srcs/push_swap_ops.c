@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_ops.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:16:44 by frangome          #+#    #+#             */
-/*   Updated: 2023/05/14 12:13:16 by fran             ###   ########.fr       */
+/*   Updated: 2023/05/16 16:25:27 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 void	swap(t_stack **stack)
 {

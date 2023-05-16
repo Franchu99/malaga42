@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_ops_utils,c                              :+:      :+:    :+:   */
+/*   push_swap_ops_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 12:11:34 by fran              #+#    #+#             */
-/*   Updated: 2023/05/14 12:11:35 by fran             ###   ########.fr       */
+/*   Updated: 2023/05/16 16:25:25 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 int	lstsize(t_stack *lst)
 {

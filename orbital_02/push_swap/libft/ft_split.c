@@ -6,13 +6,13 @@
 /*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 21:48:53 by fran              #+#    #+#             */
-/*   Updated: 2023/04/26 19:31:35 by frangome         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:55:50 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	word_counter(char const *s, char c)
+int	split_word_counter(char const *s, char c)
 {
 	int		i;
 	int		flag;
@@ -96,7 +96,7 @@ char	**ft_split(char const *s, char c)
 	char				**res;
 	int					flag;
 
-	res = malloc((word_counter(s, c) + 1) * sizeof(char *));
+	res = malloc((split_word_counter(s, c) + 1) * sizeof(char *));
 	if (!s || !res)
 		return (0);
 	flag = -1;

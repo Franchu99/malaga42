@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:28:07 by frangome          #+#    #+#             */
-/*   Updated: 2023/05/14 12:09:26 by fran             ###   ########.fr       */
+/*   Updated: 2023/05/16 16:25:13 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 
-# include "libft/libft.h"
+# include "../libft/libft.h"
+# include <stdio.h>
 
 typedef struct	s_stack
 {
