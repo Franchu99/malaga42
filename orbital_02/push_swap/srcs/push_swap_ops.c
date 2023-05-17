@@ -6,7 +6,7 @@
 /*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:16:44 by frangome          #+#    #+#             */
-/*   Updated: 2023/05/16 16:25:27 by frangome         ###   ########.fr       */
+/*   Updated: 2023/05/17 18:11:10 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	swap(t_stack **stack)
 	*stack = (*stack)->next;
 	tmp->next = (*stack)->next;
 	(*stack)->next = tmp;
+	printf("SWAP\n");
 }
 
 void	push(t_stack **sa, t_stack **sb)
@@ -42,10 +43,10 @@ void	rotate(t_stack	**stack)
 	last->next = *stack;
 	(*stack)->next = NULL;
 	*stack = tmp;
-	
+	printf("ROTATE\n");
 }
 
-void	inverse_rotate(t_stack **stack)
+void	inv_rotate(t_stack **stack)
 {
 	t_stack	*n2lst;
 	t_stack	*lst;

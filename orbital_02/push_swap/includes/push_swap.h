@@ -6,7 +6,7 @@
 /*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:28:07 by frangome          #+#    #+#             */
-/*   Updated: 2023/05/16 16:25:13 by frangome         ###   ########.fr       */
+/*   Updated: 2023/05/17 18:11:19 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 typedef struct	s_stack
 {
 	int				value;
-	// int				index;
+	int				index;
 	// int				pos;
 	// int				target_pos;
 	// int				cost_a;
@@ -32,6 +32,8 @@ void	rotate(t_stack	**stack);
 t_stack	*lstlast(t_stack *lst);
 int		lstsize(t_stack *lst);
 t_stack	*get_n2lst(t_stack *lst);
-void	inverse_rotate(t_stack **stack);
+void	inv_rotate(t_stack **stack);
+void	get_index(t_stack **stack);
+t_stack	**push_swap(t_stack **stack);
 
 #endif

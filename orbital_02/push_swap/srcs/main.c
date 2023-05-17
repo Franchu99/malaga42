@@ -6,7 +6,7 @@
 /*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 14:47:46 by fran              #+#    #+#             */
-/*   Updated: 2023/05/16 17:02:16 by frangome         ###   ########.fr       */
+/*   Updated: 2023/05/17 17:58:42 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_stack	*new_stack(int	content)
 	if (!newlist)
 		return (0);
 	newlist->value = content;
+	newlist->index = -1;
 	newlist->next = NULL;
 	return (newlist);
 }
@@ -51,7 +52,6 @@ void	print_stack(t_stack *stack)
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
-	t_stack	*stack_b;
 	char	**num_list;
 	int		i;
 	int		num_cont;
@@ -60,7 +60,6 @@ int	main(int argc, char **argv)
 	num_cont = argc;
 	num_list = argv;
 	stack_a = NULL;
-	stack_b = NULL;
 	if (argc <= 1)
 		return (0);
 	if (argc == 2)
@@ -71,6 +70,9 @@ int	main(int argc, char **argv)
 	}
 	while ( i < num_cont)
 		add_stack_back(&stack_a, new_stack(ft_atoi(num_list[i++])));
+	get_index(&stack_a);
+	print_stack(stack_a);
+	push_swap(&stack_a);
 	print_stack(stack_a);
 	return (0);
 }
