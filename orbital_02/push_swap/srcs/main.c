@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 14:47:46 by fran              #+#    #+#             */
-/*   Updated: 2023/05/18 11:13:31 by fran             ###   ########.fr       */
+/*   Updated: 2023/05/18 20:08:56 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ t_stack	*new_stack(int	content)
 		return (0);
 	newlist->value = content;
 	newlist->index = -1;
+	newlist->pos = -1;
+	newlist->target_pos = -1;
+	newlist->cost = -1;
 	newlist->next = NULL;
 	return (newlist);
 }
@@ -42,8 +45,11 @@ void	print_stack(t_stack *stack)
 {
 	while (stack)
 	{
-		printf("%i\n", stack->value);
-		printf("%i\n", stack->index);
+		printf("Value :%i\n", stack->value);
+		printf("Index: %i\n", stack->index);
+		printf("Possition: %i\n", stack->pos);
+		printf("Target: %i\n", stack->target_pos);
+		printf("Cost: %i\n\n", stack->cost);
 		stack = stack->next;
 	}
 	if (!stack)

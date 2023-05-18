@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:28:07 by frangome          #+#    #+#             */
-/*   Updated: 2023/05/18 11:11:19 by fran             ###   ########.fr       */
+/*   Updated: 2023/05/18 20:44:55 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@ typedef struct	s_stack
 {
 	int				value;
 	int				index;
-	// int				pos;
-	// int				target_pos;
-	// int				cost_a;
-	// int				cost_b;
+	int				pos;
+	int				target_pos;
+	int				cost;
 	struct s_stack	*next;
 }				t_stack;
 
@@ -38,5 +37,8 @@ t_stack	**push_swap(t_stack **stack);
 t_stack	**sort_3_nodes(t_stack **stack);
 void	print_stack(t_stack *stack);
 t_stack	**sort_big_stack(t_stack **stack_a);
+void	set_pos(t_stack	**stack);
+void	set_target_pos(t_stack **stack_a, t_stack **stack_b);
+void	calculate_cost(t_stack	*stack_a, t_stack **stack_b);
 
 #endif

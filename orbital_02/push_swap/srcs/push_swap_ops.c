@@ -6,7 +6,7 @@
 /*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:16:44 by frangome          #+#    #+#             */
-/*   Updated: 2023/05/17 18:11:10 by frangome         ###   ########.fr       */
+/*   Updated: 2023/05/18 20:40:22 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void	swap(t_stack **stack)
 	*stack = (*stack)->next;
 	tmp->next = (*stack)->next;
 	(*stack)->next = tmp;
-	printf("SWAP\n");
+	set_pos(stack);
+	printf("swap ");
 }
 
 void	push(t_stack **sa, t_stack **sb)
@@ -31,6 +32,9 @@ void	push(t_stack **sa, t_stack **sb)
 	(*sa)->next = *sb;
 	*sb = *sa;
 	*sa = tmp;
+	set_pos(sa);
+	set_pos(sb);
+	printf("push ");
 }
 
 void	rotate(t_stack	**stack)
@@ -43,7 +47,8 @@ void	rotate(t_stack	**stack)
 	last->next = *stack;
 	(*stack)->next = NULL;
 	*stack = tmp;
-	printf("ROTATE\n");
+	set_pos(stack);
+	printf("rotate ");
 }
 
 void	inv_rotate(t_stack **stack)
@@ -56,4 +61,6 @@ void	inv_rotate(t_stack **stack)
 	lst->next = *stack;
 	n2lst->next = NULL;
 	*stack = lst;
+	set_pos(stack);
+	printf("inv_rotate ");
 }
