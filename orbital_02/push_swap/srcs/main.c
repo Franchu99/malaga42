@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 14:47:46 by fran              #+#    #+#             */
-/*   Updated: 2023/05/17 17:58:42 by frangome         ###   ########.fr       */
+/*   Updated: 2023/05/18 11:13:31 by fran             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	print_stack(t_stack *stack)
 	while (stack)
 	{
 		printf("%i\n", stack->value);
+		printf("%i\n", stack->index);
 		stack = stack->next;
 	}
 	if (!stack)
@@ -71,8 +72,6 @@ int	main(int argc, char **argv)
 	while ( i < num_cont)
 		add_stack_back(&stack_a, new_stack(ft_atoi(num_list[i++])));
 	get_index(&stack_a);
-	print_stack(stack_a);
 	push_swap(&stack_a);
-	print_stack(stack_a);
 	return (0);
 }

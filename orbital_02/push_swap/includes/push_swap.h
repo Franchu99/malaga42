@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:28:07 by frangome          #+#    #+#             */
-/*   Updated: 2023/05/17 18:11:19 by frangome         ###   ########.fr       */
+/*   Updated: 2023/05/18 11:11:19 by fran             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,8 @@ t_stack	*get_n2lst(t_stack *lst);
 void	inv_rotate(t_stack **stack);
 void	get_index(t_stack **stack);
 t_stack	**push_swap(t_stack **stack);
+t_stack	**sort_3_nodes(t_stack **stack);
+void	print_stack(t_stack *stack);
+t_stack	**sort_big_stack(t_stack **stack_a);
 
 #endif
