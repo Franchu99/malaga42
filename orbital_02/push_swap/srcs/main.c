@@ -6,7 +6,7 @@
 /*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 14:47:46 by fran              #+#    #+#             */
-/*   Updated: 2023/05/18 20:08:56 by frangome         ###   ########.fr       */
+/*   Updated: 2023/05/19 20:37:33 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	print_stack(t_stack *stack)
 		stack = stack->next;
 	}
 	if (!stack)
-		printf("end\n");
+		printf("end\n\n");
 }
 
 int	main(int argc, char **argv)
@@ -78,6 +78,8 @@ int	main(int argc, char **argv)
 	while ( i < num_cont)
 		add_stack_back(&stack_a, new_stack(ft_atoi(num_list[i++])));
 	get_index(&stack_a);
+	//print_stack(stack_a);
 	push_swap(&stack_a);
+	print_stack(stack_a);
 	return (0);
 }

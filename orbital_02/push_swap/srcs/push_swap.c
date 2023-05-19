@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 14:43:19 by fran              #+#    #+#             */
-/*   Updated: 2023/05/18 11:09:35 by fran             ###   ########.fr       */
+/*   Updated: 2023/05/19 19:14:08 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	get_index(t_stack **stack)
 		{
 			if ((tmp->value < min->value || flag == 0) && tmp->index == -1)
 			{
-				min = tmp;	
+				min = tmp;
 				flag = 1;
 			}
 			tmp = tmp->next;
@@ -40,6 +40,7 @@ void	get_index(t_stack **stack)
 		min->index = index++;
 	}
 }
+
 
 t_stack	**sort_3_nodes(t_stack **stack)
 {

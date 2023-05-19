@@ -6,23 +6,23 @@
 /*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 12:11:34 by fran              #+#    #+#             */
-/*   Updated: 2023/05/16 16:25:25 by frangome         ###   ########.fr       */
+/*   Updated: 2023/05/19 15:49:51 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	lstsize(t_stack *lst)
+int lstsize(t_stack *stack)
 {
-	int		c;
+	int count;
 
-	c = 0;
-	while (lst)
+	count = 0;
+	while (stack != NULL)
 	{
-		lst = lst->next;
-		c++;
+		count++;
+		stack = stack->next;
 	}
-	return (c);
+	return (count);
 }
 
 t_stack	*lstlast(t_stack *lst)

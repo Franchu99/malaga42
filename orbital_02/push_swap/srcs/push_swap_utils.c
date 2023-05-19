@@ -6,7 +6,7 @@
 /*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 15:47:01 by frangome          #+#    #+#             */
-/*   Updated: 2023/05/18 20:44:47 by frangome         ###   ########.fr       */
+/*   Updated: 2023/05/19 20:56:53 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,21 @@ void	set_target_pos(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*tmpa;
 	t_stack *tmpb;
+	t_stack	*max;
 	int		flag;
 
+
 	tmpb = *stack_b;
+	tmpa = *stack_a;
 	while (tmpb)
 	{
 		tmpa = *stack_a;
 		flag = 0;
+		max = tmpa;
 		while (tmpa)
 		{
+			if (tmpa->index > max->index)
+				max = tmpa;
 			if (tmpb->index < tmpa->index && flag == 0)
 			{
 				tmpb->target_pos = tmpa->pos;
@@ -48,10 +54,11 @@ void	set_target_pos(t_stack **stack_a, t_stack **stack_b)
 			tmpa = tmpa->next;
 		}
 		if(flag ==0)
-			tmpb->target_pos = lstsize(*stack_a);
+			tmpb->target_pos = max->pos + 1;
 		tmpb = tmpb->next;
 	}
 }
+
 void	calculate_cost(t_stack	*stack_a, t_stack **stack_b)
 {
 	t_stack	*tmp;
