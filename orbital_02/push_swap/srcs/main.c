@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main->c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: frangome <frangome@student->42malaga->com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 14:47:46 by fran              #+#    #+#             */
-/*   Updated: 2023/05/19 20:37:33 by frangome         ###   ########.fr       */
+/*   Updated: 2023/05/22 17:17:22 by frangome         ###   ########->fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,22 +43,24 @@ void	add_stack_back(t_stack **lst, t_stack *new)
 
 void	print_stack(t_stack *stack)
 {
+	printf("\n");
 	while (stack)
 	{
 		printf("Value :%i\n", stack->value);
-		printf("Index: %i\n", stack->index);
-		printf("Possition: %i\n", stack->pos);
-		printf("Target: %i\n", stack->target_pos);
-		printf("Cost: %i\n\n", stack->cost);
+		//printf("Index: %i\n", stack->index);
+		// printf("Possition: %i\n", stack->pos);
+		//printf("Target: %i\n", stack->target_pos);
+		//printf("Cost: %i\n", stack->cost);
 		stack = stack->next;
 	}
 	if (!stack)
-		printf("end\n\n");
+		printf("end\n");
 }
 
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
+	t_stack *stack_b;
 	char	**num_list;
 	int		i;
 	int		num_cont;
@@ -67,6 +69,7 @@ int	main(int argc, char **argv)
 	num_cont = argc;
 	num_list = argv;
 	stack_a = NULL;
+	stack_b = NULL;
 	if (argc <= 1)
 		return (0);
 	if (argc == 2)
@@ -78,8 +81,10 @@ int	main(int argc, char **argv)
 	while ( i < num_cont)
 		add_stack_back(&stack_a, new_stack(ft_atoi(num_list[i++])));
 	get_index(&stack_a);
-	//print_stack(stack_a);
+	// set_pos(&stack_a);
+	// printf("max pos: %i\n", get_pos_of_max(stack_a));
 	push_swap(&stack_a);
 	print_stack(stack_a);
 	return (0);
 }
+

@@ -6,7 +6,7 @@
 /*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 15:47:01 by frangome          #+#    #+#             */
-/*   Updated: 2023/05/19 20:56:53 by frangome         ###   ########.fr       */
+/*   Updated: 2023/05/22 22:02:03 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,34 +27,86 @@ void	set_pos(t_stack	**stack)
 	}
 }
 
-void	set_target_pos(t_stack **stack_a, t_stack **stack_b)
+int	get_max_low_index(t_stack *stack_a, int index_num)
 {
-	t_stack	*tmpa;
-	t_stack *tmpb;
+	int	min;
+
+	min = 0;
+	while (stack_a)
+	{
+		if (stack_a->index < index_num)
+			min = stack_a->pos;
+
+		stack_a = stack_a->next;
+	}
+	return (min);
+}
+
+int	are_num_sort(t_stack *stack_a)
+{
+	while(stack_a->next)
+	{
+		if ((stack_a->next)->index < stack_a->index)
+			return (0);
+		stack_a = stack_a->next;
+	}
+	return (1);
+}
+
+int	get_pos_of_max(t_stack *stack_a)
+{
 	t_stack	*max;
-	int		flag;
 
+	max = stack_a;
+	while(stack_a)
+	{
+		if (stack_a->index > max->index)
+			max = stack_a;
+		stack_a = stack_a->next;
+	}
+	return (max->pos);
+}
 
+void set_target_pos(t_stack **stack_a, t_stack **stack_b)
+{
+	t_stack *tmpb;
+	t_stack *tmpa;
+	t_stack *last;
+	int flag;
+
+	last = lstlast(*stack_a);
 	tmpb = *stack_b;
-	tmpa = *stack_a;
 	while (tmpb)
 	{
-		tmpa = *stack_a;
 		flag = 0;
-		max = tmpa;
+		tmpa = *stack_a;
 		while (tmpa)
 		{
-			if (tmpa->index > max->index)
-				max = tmpa;
 			if (tmpb->index < tmpa->index && flag == 0)
 			{
-				tmpb->target_pos = tmpa->pos;
+				if (tmpb->index < last->index)
+				{
+					tmpb->target_pos = get_max_low_index(*stack_a, tmpb->index) + 1;
+				}
+				else
+				{
+					tmpb->target_pos = tmpa->pos;
+				}
 				flag = 1;
 			}
 			tmpa = tmpa->next;
 		}
-		if(flag ==0)
-			tmpb->target_pos = max->pos + 1;
+		if (flag == 0)
+		{
+			if(!are_num_sort(*stack_a))
+			{
+				tmpb->target_pos = get_pos_of_max(*stack_a) + 1;
+			}
+			else
+			{
+				tmpb->target_pos = last->pos + 1;
+			}
+		}
 		tmpb = tmpb->next;
 	}
 }

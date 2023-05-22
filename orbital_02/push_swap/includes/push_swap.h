@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:28:07 by frangome          #+#    #+#             */
-/*   Updated: 2023/05/19 11:47:03 by fran             ###   ########.fr       */
+/*   Updated: 2023/05/22 21:57:36 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ void	calculate_cost(t_stack	*stack_a, t_stack **stack_b);
 void	sort_num_in_a(t_stack	**stack_a, t_stack *stack_b);
 void	sort_min_in_b(t_stack **stack_b, t_stack *tmp);
 int		get_min_cost(t_stack *stack_b);
+int		get_pos_of_max(t_stack *stack_a);
 
 #endif
