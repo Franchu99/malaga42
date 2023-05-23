@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 15:47:01 by frangome          #+#    #+#             */
-/*   Updated: 2023/05/22 22:02:03 by frangome         ###   ########.fr       */
+/*   Updated: 2023/05/23 11:55:00 by fran             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void set_target_pos(t_stack **stack_a, t_stack **stack_b)
 			}
 			else
 			{
-				tmpb->target_pos = last->pos + 1;
+				tmpb->target_pos = 0;
 			}
 		}
 		tmpb = tmpb->next;
@@ -124,12 +124,14 @@ void	calculate_cost(t_stack	*stack_a, t_stack **stack_b)
 	tmp = *stack_b;
 	while (tmp)
 	{
-		if (tmp->target_pos >= size_a / 2)
-			tar_p = size_a - tmp->target_pos + 1;
+		if (tmp->target_pos > size_a / 2)
+			tar_p = size_a - (tmp->target_pos + 1);
 		else
 			tar_p = tmp->target_pos;
-		if (tmp->pos >= size_b / 2)
-			p = size_b - tmp->pos;
+		if (tmp->pos > size_b / 2)
+		{
+			p = size_b - (tmp->pos + 1);
+		}
 		else
 			p = tmp->pos;
 		tmp->cost = tar_p + p + 1;

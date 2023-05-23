@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 14:43:19 by fran              #+#    #+#             */
-/*   Updated: 2023/05/19 19:14:08 by frangome         ###   ########.fr       */
+/*   Updated: 2023/05/23 14:48:36 by fran             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,21 +51,21 @@ t_stack	**sort_3_nodes(t_stack **stack)
 		if (((*stack)->next)->index == 1)
 			return (stack);
 		else
-			return (swap(stack), rotate(stack), stack);
+			return (swap_a(stack), rotate_a(stack), stack);
 	}
 	else if ((*stack)->index == 1)
 	{
 		if (((*stack)->next)->index == 0)
-			return (swap(stack), stack);
+			return (swap_a(stack), stack);
 		else
-			return (inv_rotate(stack), stack);
+			return (inv_rotate_a(stack), stack);
 	}
 	else
 	{	
 		if (((*stack)->next)->index == 0)
-			return (rotate(stack), stack);
+			return (rotate_a(stack), stack);
 		else
-			return (rotate(stack), swap(stack), stack);
+			return (rotate_a(stack), swap_a(stack), stack);
 	}	
 }
 
@@ -81,7 +81,7 @@ t_stack	**push_swap(t_stack **stack)
 		if ((*stack)->index == 0)
 			return (stack);
 		else
-			return (swap(stack), stack);
+			return (swap_a(stack), stack);
 	}
 	else if (size == 3)
 	 	return (sort_3_nodes(stack));

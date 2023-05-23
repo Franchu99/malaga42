@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:28:07 by frangome          #+#    #+#             */
-/*   Updated: 2023/05/22 21:57:36 by frangome         ###   ########.fr       */
+/*   Updated: 2023/05/23 14:49:12 by fran             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,17 @@ typedef struct	s_stack
 	struct s_stack	*next;
 }				t_stack;
 
-void	swap(t_stack **stack);
-void	push(t_stack **sa, t_stack **sb);
-void	rotate(t_stack	**stack);
+void 	swap_a(t_stack **stack);
+void 	swap_b(t_stack **stack);
+void	push_a(t_stack **sa, t_stack **sb);
+void	push_b(t_stack **sa, t_stack **sb);
+void	rotate_a(t_stack	**stack);
+void	rotate_b(t_stack	**stack);
+void	inv_rotate_a(t_stack **stack);
+void	inv_rotate_b(t_stack **stack);
 t_stack	*lstlast(t_stack *lst);
 int		lstsize(t_stack *lst);
 t_stack	*get_n2lst(t_stack *lst);
-void	inv_rotate(t_stack **stack);
 void	get_index(t_stack **stack);
 t_stack	**push_swap(t_stack **stack);
 t_stack	**sort_3_nodes(t_stack **stack);

@@ -57,10 +57,21 @@ void	print_stack(t_stack *stack)
 		printf("end\n");
 }
 
+void	freelist(t_stack **stack)
+{
+	t_stack *node;
+
+	while (*stack)
+	{
+		node = (*stack)->next;
+		free(*stack);
+		*stack = node;
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
-	t_stack *stack_b;
 	char	**num_list;
 	int		i;
 	int		num_cont;
@@ -69,7 +80,6 @@ int	main(int argc, char **argv)
 	num_cont = argc;
 	num_list = argv;
 	stack_a = NULL;
-	stack_b = NULL;
 	if (argc <= 1)
 		return (0);
 	if (argc == 2)
@@ -81,10 +91,9 @@ int	main(int argc, char **argv)
 	while ( i < num_cont)
 		add_stack_back(&stack_a, new_stack(ft_atoi(num_list[i++])));
 	get_index(&stack_a);
-	// set_pos(&stack_a);
-	// printf("max pos: %i\n", get_pos_of_max(stack_a));
 	push_swap(&stack_a);
 	print_stack(stack_a);
+	freelist(&stack_a);
 	return (0);
 }
 
