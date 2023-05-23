@@ -6,7 +6,7 @@
 /*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 18:24:13 by frangome          #+#    #+#             */
-/*   Updated: 2023/05/23 14:49:43 by fran             ###   ########.fr       */
+/*   Updated: 2023/05/23 16:47:21 by fran             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,15 +85,26 @@ void	sort_min_in_b(t_stack **stack_b, t_stack *tmp)
 	int	b_pos;
 
 	size_b = lstsize(*stack_b);
-	b_pos = tmp->pos;
-	while (b_pos > 0)
+	if (tmp->pos < size_b / 2)
 	{
-		if (tmp->pos >= size_b / 2)
-			inv_rotate_b(stack_b);
-		else
+		b_pos = tmp->pos;
+		while (b_pos-- > 0)
 			rotate_b(stack_b);
-		b_pos--;
 	}
+	else
+	{
+		b_pos = size_b - tmp->pos;
+		while (b_pos-- > 0)
+			inv_rotate_b(stack_b);
+	}
+	// while (b_pos > 0)
+	// {
+	// 	if (ref_pos >= size_b / 2)
+	// 		inv_rotate_b(stack_b);
+	// 	else
+	// 		rotate_b(stack_b);
+	// 	b_pos--;
+	// }
 }
 void	sort_a(t_stack **stack_a)
 {

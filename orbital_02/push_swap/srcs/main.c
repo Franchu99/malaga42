@@ -92,7 +92,7 @@ int	main(int argc, char **argv)
 		add_stack_back(&stack_a, new_stack(ft_atoi(num_list[i++])));
 	get_index(&stack_a);
 	push_swap(&stack_a);
-	print_stack(stack_a);
+	//print_stack(stack_a);
 	freelist(&stack_a);
 	return (0);
 }
