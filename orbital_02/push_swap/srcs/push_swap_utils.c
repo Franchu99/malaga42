@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 15:47:01 by frangome          #+#    #+#             */
-/*   Updated: 2023/05/23 11:55:00 by fran             ###   ########.fr       */
+/*   Updated: 2023/05/24 18:40:03 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,13 +85,9 @@ void set_target_pos(t_stack **stack_a, t_stack **stack_b)
 			if (tmpb->index < tmpa->index && flag == 0)
 			{
 				if (tmpb->index < last->index)
-				{
 					tmpb->target_pos = get_max_low_index(*stack_a, tmpb->index) + 1;
-				}
 				else
-				{
 					tmpb->target_pos = tmpa->pos;
-				}
 				flag = 1;
 			}
 			tmpa = tmpa->next;
@@ -99,13 +95,9 @@ void set_target_pos(t_stack **stack_a, t_stack **stack_b)
 		if (flag == 0)
 		{
 			if(!are_num_sort(*stack_a))
-			{
 				tmpb->target_pos = get_pos_of_max(*stack_a) + 1;
-			}
 			else
-			{
 				tmpb->target_pos = 0;
-			}
 		}
 		tmpb = tmpb->next;
 	}
@@ -130,7 +122,7 @@ void	calculate_cost(t_stack	*stack_a, t_stack **stack_b)
 			tar_p = tmp->target_pos;
 		if (tmp->pos > size_b / 2)
 		{
-			p = size_b - (tmp->pos + 1);
+			p = size_b - (tmp->pos);
 		}
 		else
 			p = tmp->pos;

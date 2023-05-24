@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_big_stack.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 18:24:13 by frangome          #+#    #+#             */
-/*   Updated: 2023/05/23 16:47:21 by fran             ###   ########.fr       */
+/*   Updated: 2023/05/24 18:40:36 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,14 @@ void push_nums_back(t_stack **stack_a, t_stack **stack_b)
 			{
 				sort_min_in_b(stack_b, tmpb);
 				sort_num_in_a(stack_a, *stack_b);
+				print_stack(*stack_a);
+				print_stack(*stack_b);
+				printf("SIGUIENTE\n\n");
 				push_a(stack_b, stack_a);
 				if (!*stack_b)
 					break;
-				if ((*stack_a)->target_pos == lstsize(*stack_a) - 1)
-					rotate_a(stack_a);
+				// if ((*stack_a)->target_pos == lstsize(*stack_a) - 1)
+				// 	rotate_a(stack_a);
 				set_target_pos(stack_a, stack_b);
 				calculate_cost(*stack_a, stack_b);
 			}
