@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   sort_big_stack.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 18:24:13 by frangome          #+#    #+#             */
-/*   Updated: 2023/05/24 18:40:36 by frangome         ###   ########.fr       */
+/*   Updated: 2023/05/26 12:25:36 by fran             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
 void push_nums_back(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*tmpb;
-	int		min_cost;;
+	t_stack	*num_moved;
+	int		min_cost;
 
 	min_cost = 0;
-	
+
 	while (lstsize(*stack_b) > 0)
 	{
 		tmpb = *stack_b;
@@ -28,22 +28,19 @@ void push_nums_back(t_stack **stack_a, t_stack **stack_b)
 		{
 			if (tmpb->cost == min_cost)
 			{
-				sort_min_in_b(stack_b, tmpb);
+				num_moved = tmpb;
+				sort_min_in_b(stack_b, num_moved);
 				sort_num_in_a(stack_a, *stack_b);
-				print_stack(*stack_a);
-				print_stack(*stack_b);
-				printf("SIGUIENTE\n\n");
 				push_a(stack_b, stack_a);
-				if (!*stack_b)
-					break;
-				// if ((*stack_a)->target_pos == lstsize(*stack_a) - 1)
-				// 	rotate_a(stack_a);
 				set_target_pos(stack_a, stack_b);
 				calculate_cost(*stack_a, stack_b);
+				min_cost = get_min_cost(*stack_b);
+				break;
 			}
-			min_cost = get_min_cost(*stack_b);
 			tmpb = tmpb->next;
 		}
+		if (!*stack_b)
+			break;
 	}
 }
 
@@ -100,14 +97,6 @@ void	sort_min_in_b(t_stack **stack_b, t_stack *tmp)
 		while (b_pos-- > 0)
 			inv_rotate_b(stack_b);
 	}
-	// while (b_pos > 0)
-	// {
-	// 	if (ref_pos >= size_b / 2)
-	// 		inv_rotate_b(stack_b);
-	// 	else
-	// 		rotate_b(stack_b);
-	// 	b_pos--;
-	// }
 }
 void	sort_a(t_stack **stack_a)
 {
@@ -133,13 +122,23 @@ void	sort_a(t_stack **stack_a)
 t_stack	**sort_big_stack(t_stack **stack_a)
 {
 	t_stack *stack_b;
+	int		size;
 
+	size = lstsize(*stack_a);
 	stack_b = NULL;
 	set_pos(stack_a);
 	while(lstsize(*stack_a) > 3)
 	{
 		if ((*stack_a)->index > 2)
-			push_b(stack_a, &stack_b);
+		{
+			if ((*stack_a)->index < (size / 2))
+				push_b(stack_a, &stack_b);
+			else
+			{
+				push_b(stack_a, &stack_b);
+				rotate_b(&stack_b);
+			}
+		}
 		else
 			rotate_a(stack_a);
 	}

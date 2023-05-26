@@ -46,11 +46,11 @@ void	print_stack(t_stack *stack)
 	printf("\n");
 	while (stack)
 	{
-		printf("Value :%i\n", stack->value);
-		//printf("Index: %i\n", stack->index);
-		//printf("Possition: %i\n", stack->pos);
-		printf("Target: %i\n", stack->target_pos);
-		printf("Cost: %i\n", stack->cost);
+		//printf("Value :%i\n", stack->value);
+		printf("Index: %i\n", stack->index);
+		// printf("Possition: %i\n", stack->pos);
+		// printf("Target: %i\n", stack->target_pos);
+		// printf("Cost: %i\n", stack->cost);
 		stack = stack->next;
 	}
 	if (!stack)
