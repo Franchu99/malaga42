@@ -1,37 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   error_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/20 15:49:05 by frangome          #+#    #+#             */
-/*   Updated: 2023/05/26 19:50:35 by frangome         ###   ########.fr       */
+/*   Created: 2023/05/26 18:08:44 by frangome          #+#    #+#             */
+/*   Updated: 2023/05/26 20:09:27 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long	ft_atoi(const char *str)
-{
-	int		c;
-	long	num;
-	int		sign;
+#include "push_swap.h"
 
-	sign = 1;
-	c = 0;
-	num = 0;
-	while (str[c] == ' ' || str[c] == '\n' || str[c] == '\t'
-		|| str[c] == '\r' || str[c] == '\v' || str[c] == '\f')
-		c++;
-	if (str[c] == '+' || str[c] == '-')
+int	check_args(char *num)
+{
+	int	i;
+
+	if (ft_atoi(num) > 2147483647 || ft_atoi(num) < -2147483648)
+		return (1);
+	i = 0;
+	while(num[i] != '\0')
 	{
-		if (str[c] == '-')
-			sign = -1;
-		c++;
+		if ((num[i] < 48 || num[i] > 57) && num[i] != '-')
+			return (1);
+		i++;
 	}
-	while ((str[c] >= '0' && str[c] <= '9'))
+	return (0);
+}
+
+int	error_check(char **argv)
+{
+	int	i;
+	int	error;
+
+	error = 0;
+	i = 0;
+	while (argv[i])
 	{
-		num = num * 10 + (str[c] - '0');
-		c++;
+		error = check_args(argv[i]);
+		i++;
 	}
-	return (sign * num);
+	return (error);
 }

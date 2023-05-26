@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_print_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/20 15:49:05 by frangome          #+#    #+#             */
-/*   Updated: 2023/05/26 19:50:35 by frangome         ###   ########.fr       */
+/*   Created: 2023/04/29 12:09:03 by fran              #+#    #+#             */
+/*   Updated: 2023/05/26 17:54:01 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long	ft_atoi(const char *str)
-{
-	int		c;
-	long	num;
-	int		sign;
+#include "libft.h"
 
-	sign = 1;
-	c = 0;
-	num = 0;
-	while (str[c] == ' ' || str[c] == '\n' || str[c] == '\t'
-		|| str[c] == '\r' || str[c] == '\v' || str[c] == '\f')
-		c++;
-	if (str[c] == '+' || str[c] == '-')
+int	ft_print_char(int c)
+{
+	write(1, &c, 1);
+	return (1);
+}
+
+int	ft_print_str(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (!str)
 	{
-		if (str[c] == '-')
-			sign = -1;
-		c++;
+		write(1, "(null)", 6);
+		return (6);
 	}
-	while ((str[c] >= '0' && str[c] <= '9'))
+	while (str[i] != '\0')
 	{
-		num = num * 10 + (str[c] - '0');
-		c++;
+		ft_print_char(str[i]);
+		i++;
 	}
-	return (sign * num);
+	return (i);
 }

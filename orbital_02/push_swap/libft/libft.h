@@ -6,7 +6,7 @@
 /*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:52:24 by frangome          #+#    #+#             */
-/*   Updated: 2023/05/16 16:56:27 by frangome         ###   ########.fr       */
+/*   Updated: 2023/05/26 19:50:50 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 # define LIBFT_H
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
+# include <stdint.h>
 
 typedef struct s_list
 {
@@ -39,7 +41,7 @@ void	*ft_memchr(const void *s, int c, size_t n);
 size_t	ft_strlcat(char *dest, const char *src, size_t size);
 size_t	ft_strlcpy(char *dest, char *src, size_t size);
 char	*ft_strnstr(const char *big, const char *lit, size_t l);
-int		ft_atoi(const char *str);
+long	ft_atoi(const char *str);
 void	*ft_calloc(unsigned int nmemb, size_t size);
 char	*ft_strdup(const char *s);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
@@ -66,4 +68,16 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+int		ft_print_char(int c);
+int		ft_print_str(char *str);
+char	*ft_long_itoa(long n);
+int		ft_print_hexa(unsigned int num);
+int		ft_print_upper_hexa(unsigned int num);
+int		ft_print_num(int num);
+int		ft_print_unsigned(unsigned int num);
+int		ft_print_pointer(uintptr_t ptr);
+int		get_format(va_list args, const char format);
+int		ft_printf(const char *str, ...);
+
 #endif

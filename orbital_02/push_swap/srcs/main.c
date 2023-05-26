@@ -46,15 +46,15 @@ void	print_stack(t_stack *stack)
 	printf("\n");
 	while (stack)
 	{
-		//printf("Value :%i\n", stack->value);
-		printf("Index: %i\n", stack->index);
-		// printf("Possition: %i\n", stack->pos);
-		// printf("Target: %i\n", stack->target_pos);
-		// printf("Cost: %i\n", stack->cost);
+		ft_printf("Value :%i\n", stack->value);
+		//ft_printf("Index: %i\n", stack->index);
+		// ft_printf("Possition: %i\n", stack->pos);
+		// ft_printf("Target: %i\n", stack->target_pos);
+		// ft_printf("Cost: %i\n", stack->cost);
 		stack = stack->next;
 	}
 	if (!stack)
-		printf("end\n");
+		ft_printf("end\n");
 }
 
 void	freelist(t_stack **stack)
@@ -88,11 +88,12 @@ int	main(int argc, char **argv)
 		num_cont = split_word_counter(argv[1], ' ');
 		i = 0;
 	}
+	if(error_check(num_list))
+		return (ft_printf("Error\n"), 0);
 	while ( i < num_cont)
 		add_stack_back(&stack_a, new_stack(ft_atoi(num_list[i++])));
 	get_index(&stack_a);
-	push_swap(&stack_a);
-	//print_stack(stack_a);
+	push_swap(&stack_a);;
 	freelist(&stack_a);
 	return (0);
 }

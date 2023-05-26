@@ -6,12 +6,12 @@
 #    By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/16 12:53:25 by frangome          #+#    #+#              #
-#    Updated: 2023/05/22 15:01:13 by frangome         ###   ########.fr        #
+#    Updated: 2023/05/26 18:34:59 by frangome         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Nombre del programa
-NAME       = push_swap.a
+NAME       = push_swap
 # Flags de compilacion
 FLAGS      = -Wall -Wextra -Werror -g -Ofast
 # Directorios

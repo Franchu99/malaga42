@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_ops.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:16:44 by frangome          #+#    #+#             */
-/*   Updated: 2023/05/23 15:50:06 by fran             ###   ########.fr       */
+/*   Updated: 2023/05/26 18:00:29 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void swap_a(t_stack **stack)
 		tmp->next = (*stack)->next;
 		(*stack)->next = tmp;
 		set_pos(stack);
-		printf("sa\n");
+		ft_printf("sa\n");
 	}
 }
 
@@ -32,7 +32,7 @@ void swap_b(t_stack **stack)
 		tmp->next = (*stack)->next;
 		(*stack)->next = tmp;
 		set_pos(stack);
-		printf("sb\n");
+		ft_printf("sb\n");
 	}
 }
 
@@ -48,7 +48,7 @@ void	push_a(t_stack **sa, t_stack **sb)
 	*sa = tmp;
 	set_pos(sa);
 	set_pos(sb);
-	printf("pa\n");
+	ft_printf("pa\n");
 }
 
 void	push_b(t_stack **sa, t_stack **sb)
@@ -63,7 +63,7 @@ void	push_b(t_stack **sa, t_stack **sb)
 	*sa = tmp;
 	set_pos(sa);
 	set_pos(sb);
-	printf("pb\n");
+	ft_printf("pb\n");
 }
 
 void	rotate_a(t_stack	**stack)
@@ -79,7 +79,7 @@ void	rotate_a(t_stack	**stack)
 	(*stack)->next = NULL;
 	*stack = tmp;
 	set_pos(stack);
-	printf("ra\n");
+	ft_printf("ra\n");
 }
 
 void	rotate_b(t_stack	**stack)
@@ -95,7 +95,7 @@ void	rotate_b(t_stack	**stack)
 	(*stack)->next = NULL;
 	*stack = tmp;
 	set_pos(stack);
-	printf("rb\n");
+	ft_printf("rb\n");
 }
 
 void	inv_rotate_a(t_stack **stack)
@@ -111,7 +111,7 @@ void	inv_rotate_a(t_stack **stack)
 	n2lst->next = NULL;
 	*stack = lst;
 	set_pos(stack);
-	printf("rra\n");
+	ft_printf("rra\n");
 }
 void	inv_rotate_b(t_stack **stack)
 {
@@ -126,5 +126,5 @@ void	inv_rotate_b(t_stack **stack)
 	n2lst->next = NULL;
 	*stack = lst;
 	set_pos(stack);
-	printf("rrb\n");
+	ft_printf("rrb\n");
 }
