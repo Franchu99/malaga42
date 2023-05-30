@@ -3,23 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   sort_big_stack.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 18:24:13 by frangome          #+#    #+#             */
-/*   Updated: 2023/05/26 12:25:36 by fran             ###   ########.fr       */
+/*   Updated: 2023/05/30 16:32:18 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void push_nums_back(t_stack **stack_a, t_stack **stack_b)
+void	do_stuff(t_stack **stack_a, t_stack **stack_b, t_stack *num_moved)
+{
+	sort_min_in_b(stack_b, num_moved);
+	sort_num_in_a(stack_a, *stack_b);
+	push_a(stack_b, stack_a);
+	set_target_pos(stack_a, stack_b);
+	calculate_cost(*stack_a, stack_b);
+}
+
+void	push_nums_back(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*tmpb;
 	t_stack	*num_moved;
 	int		min_cost;
 
 	min_cost = 0;
-
 	while (lstsize(*stack_b) > 0)
 	{
 		tmpb = *stack_b;
@@ -29,39 +37,14 @@ void push_nums_back(t_stack **stack_a, t_stack **stack_b)
 			if (tmpb->cost == min_cost)
 			{
 				num_moved = tmpb;
-				sort_min_in_b(stack_b, num_moved);
-				sort_num_in_a(stack_a, *stack_b);
-				push_a(stack_b, stack_a);
-				set_target_pos(stack_a, stack_b);
-				calculate_cost(*stack_a, stack_b);
+				do_stuff(stack_a, stack_b, num_moved);
 				min_cost = get_min_cost(*stack_b);
-				break;
+				break ;
 			}
 			tmpb = tmpb->next;
 		}
 		if (!*stack_b)
-			break;
-	}
-}
-
-void	sort_num_in_a(t_stack	**stack_a, t_stack *stack_b)
-{
-	int	size;
-	int	count;
-
-	size = lstsize(*stack_a);
-
-	if (stack_b->target_pos <= size / 2)
-	{
-		count = stack_b->target_pos;
-		while (count-- > 0)
-			rotate_a(stack_a);
-	}
-	else
-	{
-		count = size - stack_b->target_pos;
-		while (count-- > 0)
-			inv_rotate_a(stack_a);
+			break ;
 	}
 }
 
@@ -79,55 +62,23 @@ int	get_min_cost(t_stack *stack_b)
 	return (min_cost);
 }
 
-void	sort_min_in_b(t_stack **stack_b, t_stack *tmp)
+void	do_stuff_bigstack(t_stack **stack_a, t_stack *stack_b)
 {
-	int	size_b;
-	int	b_pos;
-
-	size_b = lstsize(*stack_b);
-	if (tmp->pos < size_b / 2)
-	{
-		b_pos = tmp->pos;
-		while (b_pos-- > 0)
-			rotate_b(stack_b);
-	}
-	else
-	{
-		b_pos = size_b - tmp->pos;
-		while (b_pos-- > 0)
-			inv_rotate_b(stack_b);
-	}
-}
-void	sort_a(t_stack **stack_a)
-{
-	t_stack	*tmp;
-	int		size;
-
-	size = lstsize(*stack_a);
-	tmp = *stack_a;
-	while (tmp->index != 0)
-		tmp = tmp->next;
-	if (tmp->pos > size / 2)
-	{
-		while (tmp->pos != 0)
-				inv_rotate_a(stack_a);
-	}
-	else
-	{
-		while (tmp->pos != 0)
-			rotate_a(stack_a);
-	}
+	set_target_pos(stack_a, &stack_b);
+	calculate_cost(*stack_a, &stack_b);
+	push_nums_back(stack_a, &stack_b);
+	sort_a(stack_a);
 }
 
 t_stack	**sort_big_stack(t_stack **stack_a)
 {
-	t_stack *stack_b;
+	t_stack	*stack_b;
 	int		size;
 
 	size = lstsize(*stack_a);
 	stack_b = NULL;
 	set_pos(stack_a);
-	while(lstsize(*stack_a) > 3)
+	while (lstsize(*stack_a) > 3)
 	{
 		if ((*stack_a)->index > 2)
 		{
@@ -143,9 +94,6 @@ t_stack	**sort_big_stack(t_stack **stack_a)
 			rotate_a(stack_a);
 	}
 	stack_a = sort_3_nodes(stack_a);
-	set_target_pos(stack_a, &stack_b);
-	calculate_cost(*stack_a, &stack_b);
-	push_nums_back(stack_a, &stack_b);
-	sort_a(stack_a);
+	do_stuff_bigstack(stack_a, stack_b);
 	return (0);
 }

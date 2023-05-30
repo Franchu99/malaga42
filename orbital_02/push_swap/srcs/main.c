@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main->c                                             :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frangome <frangome@student->42malaga->com    +#+  +:+       +#+        */
+/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/14 14:47:46 by fran              #+#    #+#             */
-/*   Updated: 2023/05/22 17:17:22 by frangome         ###   ########->fr       */
+/*   Created: 2023/05/29 18:39:00 by frangome          #+#    #+#             */
+/*   Updated: 2023/05/29 18:39:59 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*new_stack(int	content)
+t_stack	*new_stack(int content)
 {
 	t_stack	*newlist;
 
@@ -41,25 +41,9 @@ void	add_stack_back(t_stack **lst, t_stack *new)
 	}
 }
 
-void	print_stack(t_stack *stack)
-{
-	printf("\n");
-	while (stack)
-	{
-		ft_printf("Value :%i\n", stack->value);
-		//ft_printf("Index: %i\n", stack->index);
-		// ft_printf("Possition: %i\n", stack->pos);
-		// ft_printf("Target: %i\n", stack->target_pos);
-		// ft_printf("Cost: %i\n", stack->cost);
-		stack = stack->next;
-	}
-	if (!stack)
-		ft_printf("end\n");
-}
-
 void	freelist(t_stack **stack)
 {
-	t_stack *node;
+	t_stack	*node;
 
 	while (*stack)
 	{
@@ -88,13 +72,12 @@ int	main(int argc, char **argv)
 		num_cont = split_word_counter(argv[1], ' ');
 		i = 0;
 	}
-	if(error_check(num_list))
+	if (error_check(num_list))
 		return (ft_printf("Error\n"), 0);
-	while ( i < num_cont)
+	while (i < num_cont)
 		add_stack_back(&stack_a, new_stack(ft_atoi(num_list[i++])));
 	get_index(&stack_a);
-	push_swap(&stack_a);;
+	push_swap(&stack_a);
 	freelist(&stack_a);
 	return (0);
 }
-

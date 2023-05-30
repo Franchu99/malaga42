@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fran <fran@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 14:43:19 by fran              #+#    #+#             */
-/*   Updated: 2023/05/23 14:48:36 by fran             ###   ########.fr       */
+/*   Updated: 2023/05/29 18:40:45 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,13 @@ void	get_index(t_stack **stack)
 {
 	t_stack	*tmp;
 	t_stack	*min;
-	int	index;
-	int	flag;
+	int		index;
+	int		flag;
 
 	tmp = *stack;
 	min = *stack;
 	index = 0;
 	flag = 0;
-	
 	while (index < lstsize(*stack))
 	{	
 		while (tmp)
@@ -40,7 +39,6 @@ void	get_index(t_stack **stack)
 		min->index = index++;
 	}
 }
-
 
 t_stack	**sort_3_nodes(t_stack **stack)
 {
@@ -84,7 +82,7 @@ t_stack	**push_swap(t_stack **stack)
 			return (swap_a(stack), stack);
 	}
 	else if (size == 3)
-	 	return (sort_3_nodes(stack));
+		return (sort_3_nodes(stack));
 	else
 		return (sort_big_stack(stack));
 }
