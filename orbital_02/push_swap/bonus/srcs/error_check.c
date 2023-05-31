@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/26 18:08:44 by frangome          #+#    #+#             */
-/*   Updated: 2023/05/31 19:41:10 by frangome         ###   ########.fr       */
+/*   Created: 2023/05/30 17:27:12 by frangome          #+#    #+#             */
+/*   Updated: 2023/05/31 18:25:44 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 int	strstrlen(char **strstr)
 {
@@ -27,10 +27,7 @@ int	check_args(char *num)
 	int	i;
 
 	if (num[0] == '\0')
-	{
-		ft_printf("llego aqui\n");
 		return (1);
-	}
 	if (ft_strlen(num) > 10)
 		return (1);
 	if (ft_atoi(num) > 2147483647 || ft_atoi(num) < -2147483648)
@@ -52,7 +49,7 @@ int	check_equals(char **argv)
 	int	len;
 
 	len = strstrlen(argv);
-	i = 0;
+	i = 1;
 	while (i < len - 1)
 	{
 		j = i + 1;
