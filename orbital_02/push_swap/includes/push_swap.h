@@ -6,7 +6,7 @@
 /*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:28:07 by frangome          #+#    #+#             */
-/*   Updated: 2023/05/29 21:08:43 by frangome         ###   ########.fr       */
+/*   Updated: 2023/07/05 19:45:39 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	calculate_cost(t_stack	*stack_a, t_stack **stack_b);
 
 void	get_index(t_stack **stack);
 t_stack	**sort_3_nodes(t_stack **stack);
-t_stack	**push_swap(t_stack **stack);
+void	push_swap(t_stack **stack);
 
 void	do_stuff(t_stack **stack_a, t_stack **stack_b, t_stack *num_moved);
 void	push_nums_back(t_stack **stack_a, t_stack **stack_b);

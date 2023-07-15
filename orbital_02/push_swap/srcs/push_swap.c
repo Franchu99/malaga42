@@ -6,7 +6,7 @@
 /*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 14:43:19 by fran              #+#    #+#             */
-/*   Updated: 2023/05/29 18:40:45 by frangome         ###   ########.fr       */
+/*   Updated: 2023/07/05 21:30:18 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,22 +67,34 @@ t_stack	**sort_3_nodes(t_stack **stack)
 	}	
 }
 
-t_stack	**push_swap(t_stack **stack)
+int	is_sorted(t_stack *stack)
+{
+	int	boolean;
+
+	boolean = 1;
+	while (stack->next != NULL)
+	{
+		if (stack->value > stack->next->value)
+			boolean = 0;
+		stack = stack->next;
+	}
+	return (boolean);
+}
+
+void	push_swap(t_stack **stack)
 {
 	int	size;
 
 	size = lstsize(*stack);
-	if (size == 1)
-		return (stack);
-	else if (size == 2)
+	if (is_sorted(*stack))
+		return ;
+	if (size == 2)
 	{
-		if ((*stack)->index == 0)
-			return (stack);
-		else
-			return (swap_a(stack), stack);
+		if ((*stack)->index != 0)
+			swap_a(stack);
 	}
 	else if (size == 3)
-		return (sort_3_nodes(stack));
+		sort_3_nodes(stack);
 	else
-		return (sort_big_stack(stack));
+		sort_big_stack(stack);
 }

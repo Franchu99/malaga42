@@ -6,7 +6,7 @@
 /*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:52:24 by frangome          #+#    #+#             */
-/*   Updated: 2023/05/31 17:47:51 by frangome         ###   ########.fr       */
+/*   Updated: 2023/05/26 19:50:50 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,19 +79,5 @@ int		ft_print_unsigned(unsigned int num);
 int		ft_print_pointer(uintptr_t ptr);
 int		get_format(va_list args, const char format);
 int		ft_printf(const char *str, ...);
-
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 75
-# endif
-
-char	*get_next_line(int fd);
-int		nline(char *buffer);
-void	remove_line(char *buffer);
-size_t	ft_strlen_gnl(const char *str);
-char	*ft_strjoin_gnl(char const *s1, char const *s2);
-void	fill_line(char *line, char *buffer);
-int		is_line(char *buffer);
-char	*no_line(char *line, char *buffer, int fd, int i);
-void	empty_buffer(char *buffer);
 
 #endif
