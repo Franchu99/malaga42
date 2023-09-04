@@ -6,7 +6,7 @@
 /*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:08:44 by frangome          #+#    #+#             */
-/*   Updated: 2023/05/31 19:41:10 by frangome         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:34:15 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,7 @@ int	check_args(char *num)
 	int	i;
 
 	if (num[0] == '\0')
-	{
-		ft_printf("llego aqui\n");
 		return (1);
-	}
 	if (ft_strlen(num) > 10)
 		return (1);
 	if (ft_atoi(num) > 2147483647 || ft_atoi(num) < -2147483648)
@@ -77,11 +74,15 @@ int	error_check(char **argv)
 	while (argv[i])
 	{
 		if (error == 1)
+		{
 			return (error);
+		}
 		error = check_args(argv[i]);
 		i++;
 	}
 	if (check_equals(argv))
+	{
 		error = 1;
+	}
 	return (error);
 }

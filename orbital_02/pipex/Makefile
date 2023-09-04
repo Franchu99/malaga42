@@ -5,13 +5,13 @@
 #                                                     +:+ +:+         +:+      #
 #    By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/05/16 12:53:25 by frangome          #+#    #+#              #
-#    Updated: 2023/05/26 18:34:59 by frangome         ###   ########.fr        #
+#    Created: 2023/08/03 17:25:34 by frangome          #+#    #+#              #
+#    Updated: 2023/09/02 19:16:20 by frangome         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Nombre del programa
-NAME       = push_swap
+NAME       = pipex
 # Flags de compilacion
 FLAGS      = -Wall -Wextra -Werror -g -Ofast
 # Directorios
@@ -20,7 +20,7 @@ OBJ_DIR    = ./obj/
 INC_DIR    = ./includes/
 LIBFT_DIR  = ./libft/
 # Archivos fuentes y objetos
-SRC_FILES  = $(wildcard $(SRC_DIR)*.c)
+SRC_FILES  = main.c utils.c
 OBJ_FILES  = $(notdir $(SRC_FILES:.c=.o))
 # Direcciones
 SRC        = $(addprefix $(SRC_DIR),$(SRC_FILES))

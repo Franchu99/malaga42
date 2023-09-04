@@ -6,11 +6,12 @@
 /*   By: frangome <frangome@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 18:39:00 by frangome          #+#    #+#             */
-/*   Updated: 2023/05/31 18:40:53 by frangome         ###   ########.fr       */
+/*   Updated: 2023/08/30 17:31:54 by frangome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <limits.h>
 
 t_stack	*new_stack(int content)
 {
@@ -41,16 +42,11 @@ void	add_stack_back(t_stack **lst, t_stack *new)
 	}
 }
 
-void	freelist(t_stack **stack)
+void	error_output(int argc, char **num_list)
 {
-	t_stack	*node;
-
-	while (*stack)
-	{
-		node = (*stack)->next;
-		free(*stack);
-		*stack = node;
-	}
+	if (argc == 2)
+		freechrchr(num_list);
+	ft_printf("Error\n");
 }
 
 int	main(int argc, char **argv)
@@ -73,11 +69,10 @@ int	main(int argc, char **argv)
 		i = 0;
 	}
 	if (error_check(num_list))
-		return (ft_printf("Error\n"), 0);
+		return (error_output(argc, num_list), 0);
 	while (i < num_cont)
 		add_stack_back(&stack_a, new_stack(ft_atoi(num_list[i++])));
-	get_index(&stack_a);
-	push_swap(&stack_a);
-	freelist(&stack_a);
-	return (0);
+	if (argc == 2)
+		freechrchr(num_list);
+	return (get_index(&stack_a), push_swap(&stack_a), free_stack(&stack_a), 0);
 }
